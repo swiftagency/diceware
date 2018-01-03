@@ -7,17 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Swift IT - Diceware Password Generator</title>
-    <link rel="stylesheet" href="css/app.css" type="text/css">
 
     <!-- MATERIAL IMPORTS -->
     <link rel="stylesheet" href="./mdl/material.min.css">
-    <script src="./mdl/material.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="./css/app.css" type="text/css">
   </head>
 
-  <body>
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
 
-    <div class="container">
+    <!-- <div class="container">
 
       <div class="btn-group" role="group" aria-label="Add random words group">
         <button type="button" class="btn btn-warning genWordsButton" data-words="3" data-rolls="5" data-reset="1">
@@ -25,19 +25,44 @@
         </button>
       </div>
 
-      <br />
-      <br />
+      <span id="diceWords" class="list-inline"></span>
 
-      <ul id="diceWords" class="list-inline"></ul>
+    </div>--> <!-- /.container -->
 
-      <br />
-      <br />
-
-    </div><!-- /.container -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h3>Swift IT - Diceware Password Generator</h3>
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div class="mdl-layout__tab-panel is-active" id="overview">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
+              <i class="material-icons">lock_outline</i>
+            </header>
+            <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+              <div class="mdl-card__supporting-text">
+                <h4>Diceware Password</h4>
+                Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse.
+              </div>
+              <div class="mdl-card__actions">
+                <a href="#" class="mdl-button">Generate Password</a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
 
     <!-- load third party libraries -->
     <script src="js/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="js/bower_components/big.js/big.min.js"></script>
+    <script src="./mdl/material.min.js"></script>
 
     <!-- load the primary wordlist synchronously -->
     <script src="js/lists/diceware-min.js"></script>

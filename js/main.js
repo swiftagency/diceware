@@ -6,6 +6,11 @@ var wordList = []
 // the running tally of total entropy in the wordList
 var totalEntropy = new Big(0)
 
+// Proper casing
+String.prototype.toProperCase = function () {
+  return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+};
+
 // Simple function to add commas to really large number strings
 //  http://www.mredkj.com/javascript/nfbasic.html
 function addCommas (nStr) {
@@ -112,35 +117,21 @@ function displayWords (words) {
 
   // add the word to the main display
   $.each(words, function (index, obj) {
-    $('#diceWords').append('<li>' + obj.word + '</li>')
+    obj.word = obj.word.toProperCase();
+    $('#diceWords').append(obj.word);
   })
 }
 
 function resetUI () {
   wordList = []
-  $('#entropyEstimateContainer').hide()
-  $('#listTitleHeader span').text(currentList)
   $('#diceWords').html('')
-  $('#diceWordsCopyable').text('')
-  $('#diceWordsCopyableContainer').hide()
-  window.location.hash = currentList
 }
 
 $(document).ready(function () {
   'use strict'
 
   // Load any wordlist specified in the URL's hash.
-  var listName = window.location.hash.substr(1)
-  var nameLink = $("a.listSelectionLink[data-list='" + listName + "']")
-  if (nameLink.length == 1) {
-      currentList = listName
-  } else {
-      console.log("Wordlist not found: '", listName, "'")
-      nameLink = $("a.listSelectionLink[data-list='" + currentList + "']")
-  }
-  nameLink.parent().addClass('active')
-  // clear and reset everything on initial load.
-  resetUI()
+  var listName = 'eff'
 
   // The nav links are used to select the current word list.
   $('.listSelectionLink').on('click', function (e) {
